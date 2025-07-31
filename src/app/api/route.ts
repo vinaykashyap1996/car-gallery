@@ -10,3 +10,5 @@ export const GET = async (request: Request) => {
     message: 'This is an example of a custom route.',
   })
 }
+
+

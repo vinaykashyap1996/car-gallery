@@ -4,6 +4,8 @@ export const Media: CollectionConfig = {
   slug: 'media',
   access: {
     read: () => true,
+    create: () => true,
+
   },
   fields: [
     {
@@ -12,5 +14,19 @@ export const Media: CollectionConfig = {
       required: true,
     },
   ],
-  upload: true,
+  upload: {
+    adminThumbnail: "adminThumbnail",
+    imageSizes: [
+      {
+        name: 'thumbnail',
+        width: 300,
+        height: 300,
+      },
+      {
+        name: 'banner',
+        width: 1024,
+        height: 600,
+      },
+    ],
+  },
 }
