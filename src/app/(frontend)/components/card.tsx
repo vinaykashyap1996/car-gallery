@@ -27,6 +27,9 @@ interface CardProps {
 const CustomCard = ({ car, imageUrl, onDelete }: CardProps) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
   const open = Boolean(anchorEl)
+  const manufacturer =
+    typeof car.manufacturer === 'object' && car.manufacturer !== null ? car.manufacturer : null
+  const logo = manufacturer?.logo && typeof manufacturer.logo === 'object' ? manufacturer.logo : null
   const handleMenuClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget)
   }
@@ -63,13 +66,15 @@ const CustomCard = ({ car, imageUrl, onDelete }: CardProps) => {
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            <Image
-              src={car.manufacturer?.logo?.url}
-              alt="Car Icon"
-              width={40}
-              height={40}
-              style={{ borderRadius: '50%' }}
-            />
+            {logo?.url ? (
+              <Image
+                src={logo.url}
+                alt="Car Icon"
+                width={40}
+                height={40}
+                style={{ borderRadius: '50%' }}
+              />
+            ) : null}
           </Avatar>
         }
         action={

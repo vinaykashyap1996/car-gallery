@@ -74,7 +74,7 @@ export default function CarGalleryClient() {
             }
           }
           return (
-            <Grid key={car.id} item xs={12} sm={6} md={4} lg={3}>
+            <Grid key={car.id} size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
               <CustomCard car={car} imageUrl={imageUrl} onDelete={handleDelete} />
             </Grid>
           )

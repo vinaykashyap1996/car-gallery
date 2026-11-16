@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { transitions } from './motion'
 
@@ -109,8 +110,8 @@ export default function Footer({ road, race }: { road: GridCar[]; race: GridCar[
           <p className="footer__label">Edit the gallery</p>
           <p>
             Every car here is a record in Payload.{' '}
-            <a className="link" href="/admin/collections/cars/create">Add a car</a> or{' '}
-            <a className="link" href="/admin/collections/cars">change one</a>.
+            <Link className="link" href="/admin/collections/cars/create">Add a car</Link> or{' '}
+            <Link className="link" href="/admin/collections/cars">change one</Link>.
           </p>
         </div>
         <div>

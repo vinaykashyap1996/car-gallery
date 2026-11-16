@@ -2,6 +2,7 @@ import React from 'react'
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export const dynamic = 'force-dynamic'
 
@@ -22,10 +23,10 @@ export default async function CreditsPage() {
 
   return (
     <main className="credits">
-      <a className="wordmark" href="/">
+      <Link className="wordmark" href="/">
         <Image className="wordmark__shield" src="/ferrari-shield.png" alt="" width={80} height={106} priority />
         <span>Maranello Annual</span>
-      </a>
+      </Link>
       <h1 className="head credits__title">Photo credits</h1>
       <p className="lead credits__lead">
         Every photograph in the gallery comes from Wikimedia Commons or Openverse, under the
@@ -46,7 +47,7 @@ export default async function CreditsPage() {
         ))}
       </ul>
       <p className="small credits__back">
-        <a className="link" href="/">Back to the gallery</a>
+        <Link className="link" href="/">Back to the gallery</Link>
       </p>
     </main>
   )

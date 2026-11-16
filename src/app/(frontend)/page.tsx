@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import type { Car, Media } from '@/payload-types'
@@ -108,7 +109,7 @@ export default async function HomePage() {
             <a className="link" href="#road">Road cars</a>
             <a className="link" href="#race">Formula 1</a>
             <a className="link" href="#titles">Titles</a>
-            <a className="link" href="/admin/collections/cars">Admin</a>
+            <Link className="link" href="/admin/collections/cars">Admin</Link>
           </nav>
           <h1 className="display lines">
             <span className="line">
