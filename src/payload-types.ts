@@ -152,6 +152,11 @@ export interface User {
 export interface Media {
   id: string;
   alt: string;
+  /**
+   * Photographer, licence and source, shown in the site footer.
+   */
+  credit?: string | null;
+  sourceUrl?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -213,10 +218,26 @@ export interface Manufacturer {
  */
 export interface Car {
   id: string;
-  title?: string | null;
+  title: string;
+  category: 'road' | 'f1';
+  /**
+   * The number or short name set large on the gallery tile, e.g. "308" or "F40".
+   */
+  code?: string | null;
+  /**
+   * Shown when a visitor taps the tile, e.g. "3.0 litres, 8 cylinders".
+   */
+  nameMeaning?: string | null;
   image?: (string | null) | Media;
   manufacturer?: (string | null) | Manufacturer;
   year?: number | null;
+  engine?: string | null;
+  power?: string | null;
+  drivers?: string | null;
+  /**
+   * One or two sentences shown with the car.
+   */
+  summary?: string | null;
   price?: number | null;
   description?: {
     root: {
@@ -329,6 +350,8 @@ export interface UsersSelect<T extends boolean = true> {
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
+  credit?: T;
+  sourceUrl?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -391,9 +414,16 @@ export interface ManufacturersSelect<T extends boolean = true> {
  */
 export interface CarsSelect<T extends boolean = true> {
   title?: T;
+  category?: T;
+  code?: T;
+  nameMeaning?: T;
   image?: T;
   manufacturer?: T;
   year?: T;
+  engine?: T;
+  power?: T;
+  drivers?: T;
+  summary?: T;
   price?: T;
   description?: T;
   updatedAt?: T;
